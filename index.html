@@ -65,7 +65,7 @@
       width: 50%;
       right: 0;
       font-size: 52px;
-      text-align: right;
+      text-align: justify;
       margin-right: 20px;
       font-family: Arial, Helvetica, sans-serif;
       /* animation: fadeIn 2.5s; */
@@ -74,8 +74,45 @@
 
     .subscribe {
       height: 20vh;
+      width: 100%;
       bottom: 0;
       position: fixed;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    .subscribe-button {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 15px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      text-transform: uppercase;
+      border-radius: 10px;
+      background-color: #be5dec;
+      color: #fff;
+      border: none;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .subscribe-button:hover {
+      background-color: #730e89c4;
+    }
+
+    .theme-color {
+      color: #be5dec;
+    }
+    .white-color {
+      color: white;
+    }
+    .white-color.theme {
+      color: #be5dec;
     }
   </style>
   <script>
@@ -90,10 +127,17 @@
         text = "RecallFort - Build your memory castle. Learn once, Remember forever.<span style=\"font-size:21px; line-height:25px\">Build your memory castle</span></br>"
         slogan = '<div style="font-size:35px; margin: 0 0 45px 0"; padding: 0 4px;>Build your Memory Castle</div>'
         innerhtml = `
-          <div><div style="margin:30px 0"><span style="color: black;font-size:90px">RecallFort</span></div>
+          <div><div style="margin:30px 0"><span class="theme-color" style="font-size:90px">RecallFort</span></div>
           Learn <span style="font-size:72px">ONCE</span>, <br>
           Remember <span style=" font-size:72px">FOREVER</span>.`
         document.querySelector('.right.text').innerHTML = innerhtml;
+
+        subscribeHTML = `
+          <div>We are almost ready. Be among the <b>first 1000 people</b> to get FREE 6 months subscription when we launch!</div>
+          <a class="subscribe-button" href="https://forms.gle/samZypQzfj7gcHyU9" target="_blank">Get 6 months subscription Free</a>
+        `;
+        document.querySelector('.subscribe').innerHTML = subscribeHTML;
+        document.querySelectorAll('.white-color').forEach(el=>el.classList.add('theme'));
       }, 4100);
     });
   </script>
@@ -103,17 +147,14 @@
   <div class="empty-screen" id="full"></div>
   <div class=" left text">
     <div>
-        You <span style="color:white">FORGET</span>,</br>Within a <span style="color:white">WEEK,</span></br>
-        <span style="color:white">MOST OF</span> what you read.</br>
+        You <span class="white-color">FORGET</span>,</br>Within a <span class="white-color">WEEK,</span></br>
+        <span class="white-color">MOST OF</span> what you read.</br>
         <span style="font-size:20px; line-height: 0;">Leaving significant gaps in your Knowledge.</span>
     </div>  
   </div>
   <div class=" right text" style="animation-delay:3s; right:0 "></div>
   <div class="subscribe">
-  <form>
-    <input type="email" class="email-input" placeholder="Enter your email" required>
-    <input type="submit" class="submit-btn" value="Subscribe">
-  </form> 
+
   </div>
 </body>
 

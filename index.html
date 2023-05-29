@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Image Transition</title>
+  <style>
+    /* CSS styles */
+    body {
+      background-image: url('background-image.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      /* transition: background-image 3s ease; */
+
+      height: 100vh;
+    }
+
+    .ending-effect {
+        background-color: #444;
+        opacity: 0;
+        transition: background-color 3s ease;
+    }
+
+    .empty-screen {
+      background-color: #fff;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      /* z-index: 9999; */
+      transition: opacity 3s ease;
+      pointer-events: none;
+    }
+
+    .empty-screen.show {
+      opacity: 1;
+    }
+
+    .left {
+      left: 0;
+      font-size: 52px;
+      animation: fadeIn 3s;
+      margin-left: 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      /* height: 80vh; */
+    }
+    .text {
+      position: fixed;
+      top: 0;
+      width: 40%;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: transparent;
+      color: #444;
+      font-weight: bold;
+      pointer-events: none;
+    }
+    .right {
+      width: 50%;
+      right: 0;
+      font-size: 52px;
+      text-align: right;
+      margin-right: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      /* animation: fadeIn 2.5s; */
+      /* height: 80vh; */
+    }
+
+    .subscribe {
+      height: 20vh;
+      bottom: 0;
+      position: fixed;
+    }
+  </style>
+  <script>
+    
+    document.addEventListener("DOMContentLoaded", function() {
+      setTimeout(function() {
+        document.querySelector('.empty-screen').classList.add('show');
+      }, 900);
+    });
+    document.addEventListener("DOMContentLoaded", function() { //ending right text
+      setTimeout(function() {
+        text = "RecallFort - Build your memory castle. Learn once, Remember forever.<span style=\"font-size:21px; line-height:25px\">Build your memory castle</span></br>"
+        slogan = '<div style="font-size:35px; margin: 0 0 45px 0"; padding: 0 4px;>Build your Memory Castle</div>'
+        innerhtml = `
+          <div><div style="margin:30px 0"><span style="color: black;font-size:90px">RecallFort</span></div>
+          Learn <span style="font-size:72px">ONCE</span>, <br>
+          Remember <span style=" font-size:72px">FOREVER</span>.`
+        document.querySelector('.right.text').innerHTML = innerhtml;
+      }, 4100);
+    });
+  </script>
+</head>
+
+<body>
+  <div class="empty-screen" id="full"></div>
+  <div class=" left text">
+    <div>
+        You <span style="color:white">FORGET</span>,</br>Within a <span style="color:white">WEEK,</span></br>
+        <span style="color:white">MOST OF</span> what you read.</br>
+        <span style="font-size:20px; line-height: 0;">Leaving significant gaps in your Knowledge.</span>
+    </div>  
+  </div>
+  <div class=" right text" style="animation-delay:3s; right:0 "></div>
+  <div class="subscribe">
+  <form>
+    <input type="email" class="email-input" placeholder="Enter your email" required>
+    <input type="submit" class="submit-btn" value="Subscribe">
+  </form> 
+  </div>
+</body>
+
+</html>
